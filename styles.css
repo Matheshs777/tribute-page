@@ -1,0 +1,16 @@
+*{
+  background-color:#D6001C;
+  color:white;
+}#image{
+  display:block;
+  max-width:100%;
+  height:auto;
+  justify-content: center;
+}
+#title{
+  text-align:center;
+}
+h3{
+  display:flex;
+  justify-content:center;
+}
