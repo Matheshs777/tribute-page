@@ -20,4 +20,31 @@ h3{
   padding:40px 40px 40px 40px;
 }
 }
+@keyframes scale-x {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+.view {
+  will-change: transform, opacity;
+  animation: fade-reveal auto linear both;
+  animation-timeline: view();
+  animation-range: entry 10% cover 20%;
+}
 
+@keyframes fade-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .view {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
