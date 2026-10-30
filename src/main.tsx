@@ -1,5 +1,6 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
+import { Analytics } from '@vercel/analytics/react'
 import '@fontsource/anton/400.css'
 import '@fontsource-variable/manrope'
 import './index.css'
@@ -14,6 +15,9 @@ if (!container) {
 
 createRoot(container).render(
   <StrictMode>
-    <App />
+    <>
+      <App />
+      <Analytics />
+    </>
   </StrictMode>,
 )
