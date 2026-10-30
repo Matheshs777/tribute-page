@@ -1,0 +1,342 @@
+/* =========================================================
+   Mindset — editorial reading of the career
+   ========================================================= */
+
+.mindset {
+  position: relative;
+  padding-block: var(--section-y);
+  overflow: clip;
+  background:
+    radial-gradient(ellipse at 18% 28%, rgba(201, 162, 75, 0.09), transparent 42%),
+    radial-gradient(ellipse at 92% 74%, rgba(124, 31, 40, 0.14), transparent 42%),
+    #080808;
+}
+
+.mindset-watermark {
+  position: absolute;
+  top: 12%;
+  right: -0.08em;
+  color: transparent;
+  font-size: clamp(9rem, 18vw, 19rem);
+  line-height: 0.72;
+  letter-spacing: -0.03em;
+  -webkit-text-stroke: 1px rgba(244, 241, 233, 0.04);
+  text-stroke: 1px rgba(244, 241, 233, 0.04);
+  writing-mode: vertical-rl;
+  pointer-events: none;
+  user-select: none;
+}
+
+.mindset .container {
+  position: relative;
+  z-index: 1;
+}
+
+.mindset-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
+  align-items: start;
+  gap: clamp(2.5rem, 7vw, 7rem);
+  margin-top: clamp(2.5rem, 5vw, 4.5rem);
+}
+
+/* ---------------------------------------------------------
+   Sticky training photograph
+   --------------------------------------------------------- */
+
+.mindset-media {
+  position: sticky;
+  top: calc(var(--nav-h) + 2rem);
+  min-width: 0;
+}
+
+.mindset-media-frame {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: #111;
+}
+
+.mindset-media-parallax {
+  position: absolute;
+  inset: -5% 0;
+  will-change: transform;
+}
+
+.mindset-media-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 28%;
+  filter: grayscale(0.48) contrast(1.08) brightness(0.86);
+  transform: scale(1.015);
+  transition:
+    filter 1s var(--ease),
+    transform 1.4s var(--ease-out);
+}
+
+.mindset-media:hover .mindset-media-frame img {
+  filter: grayscale(0.16) contrast(1.04) brightness(0.92);
+  transform: scale(1.045);
+}
+
+.mindset-media-shade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(6, 6, 6, 0.45), transparent 26%, transparent 60%, rgba(6, 6, 6, 0.82)),
+    linear-gradient(90deg, rgba(6, 6, 6, 0.28), transparent 48%);
+}
+
+.mindset-media-index {
+  position: absolute;
+  top: 1.2rem;
+  left: 1.3rem;
+  color: var(--gold);
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+}
+
+.mindset-media-word {
+  position: absolute;
+  right: 0.5rem;
+  bottom: 1.4rem;
+  color: transparent;
+  font-size: clamp(5rem, 10vw, 9rem);
+  line-height: 0.7;
+  writing-mode: vertical-rl;
+  -webkit-text-stroke: 1px rgba(244, 241, 233, 0.22);
+  text-stroke: 1px rgba(244, 241, 233, 0.22);
+  pointer-events: none;
+}
+
+.mindset-caption {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 0.7rem;
+  color: rgba(244, 241, 233, 0.4);
+  font-size: 0.53rem;
+  letter-spacing: 0.08em;
+  line-height: 1.5;
+}
+
+.mindset-caption a {
+  flex: 0 0 auto;
+  color: rgba(201, 162, 75, 0.72);
+  transition: color 0.3s var(--ease);
+}
+
+.mindset-caption a:hover {
+  color: var(--gold-bright);
+}
+
+/* ---------------------------------------------------------
+   Principles
+   --------------------------------------------------------- */
+
+.mindset-lede {
+  max-width: 720px;
+  color: rgba(244, 241, 233, 0.86);
+  font-size: clamp(1.2rem, 1.9vw, 1.62rem);
+  font-weight: 400;
+  line-height: 1.55;
+}
+
+.mindset-lede em {
+  color: var(--gold-bright);
+}
+
+.principles {
+  margin-top: clamp(1.8rem, 3.5vw, 2.8rem);
+}
+
+.principle {
+  padding: clamp(1.2rem, 2.4vw, 1.8rem) 0;
+  border-top: 1px solid var(--border-soft);
+  transition: border-color 0.35s var(--ease);
+}
+
+.principle:hover {
+  border-top-color: rgba(201, 162, 75, 0.38);
+}
+
+.principle-head {
+  display: grid;
+  grid-template-columns: 2.2rem minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 0.8rem;
+}
+
+.principle-index {
+  color: var(--gold-dim);
+  font-size: 0.55rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.principle-title {
+  color: var(--bone);
+  font-size: clamp(1.45rem, 2.3vw, 2.1rem);
+  line-height: 1;
+}
+
+.principle-stat {
+  color: rgba(244, 241, 233, 0.4);
+  font-size: 0.53rem;
+  font-weight: 600;
+  letter-spacing: 0.11em;
+  text-align: right;
+  text-transform: uppercase;
+}
+
+.principle-copy {
+  max-width: 720px;
+  margin-top: 0.65rem;
+  margin-left: 3rem;
+  color: var(--muted);
+  font-size: clamp(0.83rem, 0.92vw, 0.92rem);
+  line-height: 1.75;
+}
+
+.mindset-note {
+  position: relative;
+  display: flex;
+  gap: 1rem;
+  margin-top: clamp(1.6rem, 3vw, 2.4rem);
+  padding: clamp(1.2rem, 2.2vw, 1.7rem);
+  border: 1px solid rgba(201, 162, 75, 0.22);
+  background:
+    linear-gradient(135deg, rgba(201, 162, 75, 0.08), transparent 66%),
+    rgba(244, 241, 233, 0.015);
+}
+
+.mindset-note-mark {
+  flex: 0 0 auto;
+  color: var(--gold);
+  font-size: 3.2rem;
+  line-height: 0.62;
+  opacity: 0.8;
+}
+
+.mindset-note-title {
+  color: var(--gold);
+  font-size: 0.56rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.mindset-note p:last-child {
+  margin-top: 0.5rem;
+  color: rgba(244, 241, 233, 0.58);
+  font-size: 0.78rem;
+  line-height: 1.7;
+}
+
+.mindset-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: clamp(1.5rem, 3vw, 2.2rem);
+  padding: 1rem 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  color: rgba(244, 241, 233, 0.78);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  transition:
+    color 0.3s var(--ease),
+    border-color 0.3s var(--ease);
+}
+
+.mindset-link .icon-sm {
+  color: var(--gold);
+  transition: transform 0.3s var(--ease);
+}
+
+.mindset-link:hover {
+  border-color: rgba(201, 162, 75, 0.4);
+  color: var(--gold-bright);
+}
+
+.mindset-link:hover .icon-sm {
+  transform: translate(3px, -3px);
+}
+
+/* ---------------------------------------------------------
+   Mindset responsive
+   --------------------------------------------------------- */
+
+@media (max-width: 1023px) {
+  .mindset-layout {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .mindset-media {
+    position: relative;
+    top: auto;
+    max-width: 720px;
+  }
+
+  .mindset-media-frame {
+    aspect-ratio: 16 / 10;
+  }
+
+  .mindset-media-word {
+    writing-mode: horizontal-tb;
+    font-size: clamp(4rem, 12vw, 7rem);
+  }
+
+  .principle-copy {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .mindset-media-frame {
+    aspect-ratio: 4 / 3;
+  }
+
+  .mindset-caption {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.3rem;
+  }
+
+  .mindset-lede {
+    font-size: 1.12rem;
+  }
+
+  .principle-head {
+    grid-template-columns: 1.8rem minmax(0, 1fr);
+    row-gap: 0.4rem;
+  }
+
+  .principle-stat {
+    grid-column: 2;
+    text-align: left;
+  }
+
+  .principle-copy {
+    font-size: 0.82rem;
+  }
+
+  .mindset-note {
+    gap: 0.7rem;
+  }
+
+  .mindset-note-mark {
+    font-size: 2.4rem;
+  }
+
+  .mindset-link {
+    font-size: 0.6rem;
+  }
+}

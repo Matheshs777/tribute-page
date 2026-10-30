@@ -1,0 +1,84 @@
+/* =========================================================
+   Accessibility + global finishing rules
+   ========================================================= */
+
+/* Lenis reads scroll-padding-top itself and subtracts it from the destination,
+   so this single value is the shared clearance for native and smooth scrolling.
+   Do not add scroll-margin-top as well: the two would stack. */
+html {
+  scroll-padding-top: calc(var(--nav-h) + 16px);
+}
+
+main:focus {
+  outline: none;
+}
+
+button,
+a,
+summary {
+  touch-action: manipulation;
+}
+
+/* Avoid the browser's default blue flash on iOS */
+a,
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .site-nav.is-scrolled,
+  .mobile-menu,
+  .hero-model-tag,
+  .goal-track-panel,
+  .dialog-backdrop {
+    background-color: rgba(6, 6, 6, 0.96);
+  }
+
+  .dialog-backdrop {
+    background-color: rgba(3, 3, 3, 0.97);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    transition-delay: 0ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .mindset-media-parallax {
+    transform: none !important;
+  }
+
+  .goal-track-panel:hover,
+  .goal-track-panel:focus-within {
+    transform: none;
+  }
+
+  .team-fill {
+    transform: scaleX(1) !important;
+  }
+
+  .year-bar {
+    transform: scaleY(1) !important;
+  }
+
+  .siuuu-particles,
+  .intro-burst {
+    display: none !important;
+  }
+
+  .hero-title-outline,
+  .closing-title-outline,
+  .siuuu-title span {
+    -webkit-text-stroke-width: 1px;
+  }
+}

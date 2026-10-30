@@ -1,0 +1,9 @@
+# Model slot
+
+This folder is intentionally empty apart from this note. Place the authorised model at:
+
+```text
+public/models/cr7.glb
+```
+
+The runtime checks this path automatically. See `public/models/README.md` for export requirements.

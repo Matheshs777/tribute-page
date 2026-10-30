@@ -1,0 +1,713 @@
+/* =========================================================
+   Numbers — the statistical record (light editorial spread)
+   ========================================================= */
+
+.numbers {
+  --on-light-gold: #71551f;
+  --on-light-muted: rgba(11, 11, 12, 0.68);
+  --on-light-faint: rgba(11, 11, 12, 0.6);
+  --on-light-line: rgba(11, 11, 12, 0.16);
+  position: relative;
+  padding-block: var(--section-y);
+  overflow: clip;
+  background:
+    radial-gradient(ellipse at 90% 0%, rgba(201, 162, 75, 0.14), transparent 38%),
+    var(--bone);
+  color: var(--ink);
+}
+
+.numbers .section-index,
+.numbers .eyebrow {
+  color: var(--on-light-gold);
+}
+
+.numbers .section-rule {
+  background: linear-gradient(90deg, rgba(11, 11, 12, 0.3), transparent);
+}
+
+.numbers .section-title {
+  color: var(--ink);
+}
+
+.numbers .section-intro {
+  color: var(--on-light-muted);
+}
+
+.numbers .accent-text {
+  color: var(--on-light-gold);
+}
+
+.numbers .status-dot,
+.numbers .status-dot-dark {
+  background: var(--on-light-gold);
+  box-shadow: 0 0 0 4px rgba(113, 85, 31, 0.14);
+}
+
+.numbers-watermark {
+  position: absolute;
+  top: 1.5rem;
+  right: -0.04em;
+  color: transparent;
+  font-size: clamp(11rem, 28vw, 28rem);
+  line-height: 0.7;
+  letter-spacing: -0.04em;
+  -webkit-text-stroke: 1px rgba(11, 11, 12, 0.055);
+  text-stroke: 1px rgba(11, 11, 12, 0.055);
+  pointer-events: none;
+  user-select: none;
+}
+
+.numbers .container {
+  position: relative;
+  z-index: 1;
+}
+
+.numbers-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 330px;
+  align-items: end;
+  gap: clamp(2rem, 5vw, 5rem);
+}
+
+.numbers-head-aside {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding-left: clamp(1.2rem, 2.5vw, 2.4rem);
+  border-left: 1px solid var(--on-light-line);
+  color: var(--on-light-muted);
+  font-size: 0.78rem;
+  line-height: 1.7;
+}
+
+.numbers-verified {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  color: var(--on-light-gold);
+  font-size: 0.57rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.numbers-head-source {
+  padding-top: 0.6rem;
+  border-top: 1px solid var(--on-light-line);
+  color: var(--on-light-faint);
+  font-size: 0.56rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ---------------------------------------------------------
+   Metrics
+   --------------------------------------------------------- */
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+  border-top: 1px solid var(--on-light-line);
+}
+
+.metric {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: clamp(1.2rem, 2.4vw, 1.9rem);
+  border-bottom: 1px solid var(--on-light-line);
+  border-left: 1px solid var(--on-light-line);
+  transition: background-color 0.4s var(--ease);
+}
+
+.metric:nth-child(3n + 1) {
+  border-left: 0;
+}
+
+.metric:hover {
+  background: rgba(11, 11, 12, 0.025);
+}
+
+.metric-top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.metric-index {
+  color: var(--on-light-gold);
+  font-size: 0.55rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+
+.metric-detail {
+  overflow: hidden;
+  color: var(--on-light-faint);
+  font-size: 0.5rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-align: right;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.metric-value {
+  margin-top: clamp(1.3rem, 3vw, 2.2rem);
+  color: var(--ink);
+  font-size: clamp(3.2rem, 5.4vw, 5.2rem);
+  line-height: 0.84;
+  font-variant-numeric: tabular-nums;
+}
+
+.metric-label {
+  margin-top: 0.6rem;
+  color: var(--ink);
+  font-size: 0.67rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  line-height: 1.45;
+  text-transform: uppercase;
+}
+
+.metric-source {
+  margin-top: 0.3rem;
+  color: var(--on-light-faint);
+  font-size: 0.55rem;
+  line-height: 1.5;
+}
+
+/* ---------------------------------------------------------
+   Goal contribution band
+   --------------------------------------------------------- */
+
+.contribution-band {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+  padding: clamp(1.6rem, 3.5vw, 2.8rem);
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 85% 20%, rgba(201, 162, 75, 0.16), transparent 50%),
+    #0b0b0c;
+  color: var(--bone);
+}
+
+.contribution-band::before {
+  position: absolute;
+  top: 0;
+  right: 12%;
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, rgba(201, 162, 75, 0.26), transparent);
+  content: '';
+}
+
+.contribution-band > .eyebrow {
+  color: var(--gold);
+}
+
+.contribution-equation {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: clamp(0.35rem, 1.4vw, 1.1rem);
+  font-size: clamp(2.2rem, 5.4vw, 5.2rem);
+  line-height: 0.9;
+  font-variant-numeric: tabular-nums;
+}
+
+.contribution-op {
+  color: rgba(244, 241, 233, 0.28);
+  font-size: 0.6em;
+}
+
+.contribution-total {
+  color: var(--gold-bright);
+}
+
+.contribution-caption {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem 2rem;
+  color: rgba(244, 241, 233, 0.76);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+}
+
+.contribution-caption span {
+  color: rgba(244, 241, 233, 0.38);
+  font-size: 0.55rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: none;
+}
+
+/* ---------------------------------------------------------
+   Charts
+   --------------------------------------------------------- */
+
+.numbers-panels {
+  display: grid;
+  grid-template-columns: minmax(0, 1.06fr) minmax(0, 0.94fr);
+  align-items: start;
+  gap: clamp(2.2rem, 4.5vw, 4.5rem);
+  margin-top: clamp(2.8rem, 5.5vw, 4.5rem);
+}
+
+.numbers-panel {
+  min-width: 0;
+  padding-top: clamp(1.1rem, 2vw, 1.5rem);
+  border-top: 1px solid rgba(11, 11, 12, 0.28);
+}
+
+.panel-head {
+  max-width: 520px;
+}
+
+.panel-title {
+  margin-top: 0.5rem;
+  color: var(--ink);
+  font-size: clamp(1.6rem, 2.6vw, 2.3rem);
+  line-height: 1;
+}
+
+.panel-intro {
+  margin-top: 0.65rem;
+  color: var(--on-light-muted);
+  font-size: 0.8rem;
+  line-height: 1.7;
+}
+
+.team-chart {
+  margin-top: clamp(1.2rem, 2.5vw, 1.8rem);
+}
+
+.team-row {
+  --team-color: var(--gold);
+  display: grid;
+  grid-template-columns: minmax(130px, 190px) minmax(0, 1fr) 92px;
+  align-items: center;
+  gap: 1.1rem;
+  padding: 0.78rem 0;
+  border-top: 1px solid rgba(11, 11, 12, 0.12);
+}
+
+.team-row:last-child {
+  border-bottom: 1px solid rgba(11, 11, 12, 0.12);
+}
+
+.team-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  min-width: 0;
+}
+
+.team-name {
+  color: var(--ink);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.team-note {
+  overflow: hidden;
+  color: var(--on-light-faint);
+  font-size: 0.5rem;
+  line-height: 1.4;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.team-track {
+  position: relative;
+  height: 6px;
+  overflow: hidden;
+  background: rgba(11, 11, 12, 0.09);
+}
+
+.team-fill {
+  display: block;
+  width: var(--team-width);
+  height: 100%;
+  background: var(--team-color);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.9s var(--ease) var(--team-delay);
+}
+
+.numbers-panel.is-inview .team-fill {
+  transform: scaleX(1);
+}
+
+.team-numbers {
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-end;
+  gap: 0.45rem;
+}
+
+.team-goals {
+  color: var(--ink);
+  font-size: 1.05rem;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.team-apps {
+  color: var(--on-light-faint);
+  font-size: 0.48rem;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.year-chart {
+  position: relative;
+  height: clamp(220px, 22vw, 300px);
+  margin-top: 1.2rem;
+  padding-top: 1rem;
+}
+
+.year-grid {
+  position: absolute;
+  inset: 1rem 0 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  pointer-events: none;
+}
+
+.year-grid span {
+  width: 100%;
+  height: 1px;
+  background: rgba(11, 11, 12, 0.09);
+}
+
+.year-bars {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 100%;
+}
+
+.year-column {
+  --year-height: 50%;
+  --year-delay: 0ms;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  height: 100%;
+  min-width: 0;
+}
+
+.year-bar-value {
+  color: var(--on-light-gold);
+  font-size: 0.5rem;
+  font-weight: 700;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  opacity: 0;
+  transform: translateY(3px);
+  transition:
+    opacity 0.25s var(--ease),
+    transform 0.25s var(--ease);
+}
+
+.year-column:hover .year-bar-value,
+.year-column.is-peak .year-bar-value {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.year-bar {
+  width: 64%;
+  height: calc(var(--year-height) * 0.7);
+  min-height: 2px;
+  margin-top: 0.25rem;
+  background: linear-gradient(180deg, #c9a24b, #8f7135);
+  transform: scaleY(0);
+  transform-origin: center bottom;
+  transition: transform 0.9s var(--ease) var(--year-delay);
+}
+
+.numbers-panel.is-inview .year-bar {
+  transform: scaleY(1);
+}
+
+.year-column.is-peak .year-bar {
+  background: linear-gradient(180deg, var(--gold-bright), var(--gold));
+  box-shadow: 0 0 18px rgba(201, 162, 75, 0.45);
+}
+
+.year-column.is-partial .year-bar {
+  background: repeating-linear-gradient(
+    135deg,
+    rgba(113, 85, 31, 0.8) 0,
+    rgba(113, 85, 31, 0.8) 3px,
+    rgba(113, 85, 31, 0.28) 3px,
+    rgba(113, 85, 31, 0.28) 6px
+  );
+}
+
+.year-label {
+  margin-top: 0.3rem;
+  color: var(--on-light-faint);
+  font-size: 0.46rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+.year-column.is-peak .year-label {
+  color: var(--ink);
+  font-weight: 800;
+}
+
+.year-chart-foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1.4rem;
+  margin-top: 1rem;
+  padding-top: 0.65rem;
+  border-top: 1px solid rgba(11, 11, 12, 0.12);
+  color: var(--on-light-faint);
+  font-size: 0.51rem;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.year-chart-foot > span:first-child {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.legend-swatch {
+  display: inline-block;
+  width: 12px;
+  height: 5px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-dim));
+}
+
+/* ---------------------------------------------------------
+   Milestones + footnote
+   --------------------------------------------------------- */
+
+.milestone-band {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+  border-top: 1px solid var(--on-light-line);
+  border-bottom: 1px solid var(--on-light-line);
+}
+
+.milestone {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: clamp(1rem, 2vw, 1.5rem);
+  border-left: 1px solid var(--on-light-line);
+}
+
+.milestone:first-child {
+  border-left: 0;
+}
+
+.milestone-year {
+  color: var(--on-light-gold);
+  font-size: 0.53rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.milestone-value {
+  margin-top: 0.3rem;
+  color: var(--ink);
+  font-size: clamp(2rem, 3.4vw, 3rem);
+  line-height: 0.9;
+  font-variant-numeric: tabular-nums;
+}
+
+.milestone-label {
+  color: var(--on-light-muted);
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.stats-footnote {
+  max-width: 860px;
+  margin-top: 1.8rem;
+  color: var(--on-light-faint);
+  font-size: 0.62rem;
+  line-height: 1.75;
+}
+
+/* ---------------------------------------------------------
+   Numbers responsive
+   --------------------------------------------------------- */
+
+@media (max-width: 1180px) {
+  .numbers-head {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .numbers-head-aside {
+    max-width: 560px;
+    padding-top: 1.1rem;
+    padding-left: 0;
+    border-top: 1px solid var(--on-light-line);
+    border-left: 0;
+  }
+
+  .numbers-head-source {
+    padding-top: 0;
+    border-top: 0;
+  }
+}
+
+@media (max-width: 1023px) {
+  .metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .metric:nth-child(3n + 1) {
+    border-left: 1px solid var(--on-light-line);
+  }
+
+  .metric:nth-child(odd) {
+    border-left: 0;
+  }
+
+  .numbers-panels {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .team-row {
+    grid-template-columns: minmax(120px, 180px) minmax(0, 1fr) 88px;
+  }
+
+  .milestone-band {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .milestone:nth-child(3) {
+    border-left: 0;
+  }
+
+  .milestone:nth-child(n + 3) {
+    border-top: 1px solid var(--on-light-line);
+  }
+}
+
+@media (max-width: 640px) {
+  .numbers {
+    --section-y: clamp(4.5rem, 14vw, 6.5rem);
+  }
+
+  .metrics {
+    grid-template-columns: 1fr;
+  }
+
+  .metric {
+    border-left: 0;
+    padding-inline: 0.2rem;
+  }
+
+  .metric-value {
+    font-size: clamp(3rem, 16vw, 4.4rem);
+  }
+
+  .metric-detail {
+    white-space: normal;
+  }
+
+  .contribution-equation {
+    gap: 0.35rem;
+    font-size: clamp(1.85rem, 9vw, 3rem);
+  }
+
+  .contribution-caption {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .team-row {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 0.35rem 1rem;
+    padding-block: 0.9rem;
+  }
+
+  .team-track {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    margin-top: 0.15rem;
+  }
+
+  .team-numbers {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .team-note {
+    white-space: normal;
+  }
+
+  .year-bars {
+    gap: 1px;
+  }
+
+  .year-bar {
+    width: 72%;
+  }
+
+  .year-label {
+    font-size: 0.4rem;
+  }
+
+  .year-column:nth-child(even) .year-label {
+    opacity: 0;
+  }
+
+  .year-chart-foot {
+    gap: 0.4rem 0.9rem;
+    font-size: 0.45rem;
+  }
+
+  .milestone {
+    padding: 1rem 0.8rem;
+  }
+
+  .milestone-band {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .milestone-value {
+    font-size: 2.1rem;
+  }
+
+  .stats-footnote {
+    font-size: 0.54rem;
+  }
+}
