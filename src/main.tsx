@@ -13,11 +13,16 @@ if (!container) {
   throw new Error('Root container not found')
 }
 
+// Vercel injects /_vercel/insights/script.js in production only, so skip it on
+// local dev/preview hosts to avoid a guaranteed 404 in the console.
+const isLocalHost =
+  window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+
 createRoot(container).render(
   <StrictMode>
     <>
       <App />
-      <Analytics />
+      {!isLocalHost && <Analytics />}
     </>
   </StrictMode>,
 )
