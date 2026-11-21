@@ -2,6 +2,10 @@
 
 An independent, cinematic 3D tribute to Cristiano Ronaldo: career, records, trophies, mindset and the moments that defined an era.
 
+![CR7 — The Legend home screen](docs/preview.jpg)
+
+*Desktop home screen: 3D hero, career headline figures and the 985-goal milestone.*
+
 > **Not an official website.** This is a non-commercial fan project. It is not affiliated with, endorsed by, or sponsored by Cristiano Ronaldo, his representatives, any club, league, federation, or governing body. Photographs are used under their respective licences and credited in the interface. The 3D athlete and Ballon d'Or exhibit are community-made CC BY 4.0 models credited in the footer; every other trophy form is an original abstract interpretation. Nothing here is an official replica.
 
 ---
